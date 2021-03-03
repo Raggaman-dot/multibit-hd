@@ -107,3 +107,5 @@ index 61979a3..e8a0de1 100644
 
 mvn clean dependency:sources install
 
+java -jar mbhd-swing/target/multibit-hd.jar
+
