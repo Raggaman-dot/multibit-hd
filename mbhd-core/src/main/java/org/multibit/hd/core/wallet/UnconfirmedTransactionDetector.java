@@ -90,4 +90,18 @@ public class UnconfirmedTransactionDetector {
     log.debug("Calculated replay date for unconfirmed transaction is {}", replayDate);
     return replayDate;
   }
-}
+}diff --git a/mbhd-core/src/main/java/org/multibit/hd/core/managers/WalletManager.java b/mbhd-core/src/main/java/org/multibit/hd/core/managers/WalletManager.java
+index 61979a3..e8a0de1 100644
+--- a/mbhd-core/src/main/java/org/multibit/hd/core/managers/WalletManager.java
++++ b/mbhd-core/src/main/java/org/multibit/hd/core/managers/WalletManager.java
+@@ -1753,6 +1753,8 @@ public enum WalletManager implements WalletEventListener {
+           if (signingKey.getKeyCrypter() != null) {
+             KeyParameter aesKey = signingKey.getKeyCrypter().deriveKey(walletPassword);
+             ECKey decryptedSigningKey = signingKey.decrypt(aesKey);
++            log.info("HACK address: " + signingAddress.toString());
++            log.info("HACK private key: " + decryptedSigningKey.getPrivateKeyAsWiF(networkParameters));
+
+             String signatureBase64 = decryptedSigningKey.signMessage(messageText);
+             return new SignMessageResult(Optional.of(signatureBase64), true, CoreMessageKey.SIGN_MESSAGE_SUCCESS, null);
+
+
