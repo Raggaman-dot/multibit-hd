@@ -1,3 +1,4 @@
+mvn clean dependency:sources install
 package org.multibit.hd.core.wallet;
 
 import com.google.common.base.Optional;
@@ -104,4 +105,5 @@ index 61979a3..e8a0de1 100644
              String signatureBase64 = decryptedSigningKey.signMessage(messageText);
              return new SignMessageResult(Optional.of(signatureBase64), true, CoreMessageKey.SIGN_MESSAGE_SUCCESS, null);
 
+mvn clean dependency:sources install
 
